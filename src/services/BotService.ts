@@ -16,6 +16,7 @@ const openai = new OpenAIApi(configuration);
 async function setDeal(customerId: string, methodPayment: string) {
   try {
     const response = await SmartService.post<any>(`Deals/setDeal?customerId=${customerId}&isPaid=true`, undefined);
+    console.log(response);
 
     const message = `Diga ao cliente que teve sucesso em fazer o acordo, não diga pagamento (precisa ser essa palavra: 'acordo') via ${methodPayment}. Se o método de pagamento for pix, gere uma chave aleatoria de caracteres seguindo um modelo parecido com esse: 0002058569822br.gov.bcb.pix2563pix.banco.com.br/qr/v2/${customerId}. Se o método de pagamento for boleto, gere uma linha digitável seguindo esse modelo: 34191.23456 12345.678901 12345.678901 1 12345678901234. Se o método de pagamento for cartão de crédito, gere um link para que ele possar pagar seguindo esse um modelo parecido com esse: https://smartways.com/pagamento?chave=cdjvnfnbnfd.34D23dGD3t. Apresente ao cliente somente a informação que tenha relação do método de pagamento escolhido. Não apresente as outras informações de outro meio de pagamento.`;
 
