@@ -57,9 +57,9 @@ export const ActionsChat: React.FC = () => {
             </C.ActionsItem>
           </PopoverClose>
           <PopoverClose aria-label="Close">
-            <div onClick={() => selectOption(2)}>
+            <C.ActionsItem onClick={() => selectOption(2)}>
               <CreditCard /> Pagar faturas
-            </div>
+            </C.ActionsItem>
           </PopoverClose>
         </C.ActionsContent>
       </C.ActionsContainer>
